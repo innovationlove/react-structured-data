@@ -12,9 +12,17 @@ export const JSONLD = props => {
       : Object.assign({'@context': 'https://schema.org/'}, firstChild)
   }
 
-  return (props.dangerouslyExposeHtml
-    ? <script type="application/ld+json" dangerouslySetInnerHTML={{__html: JSON.stringify(json)}} />
-    : <script type="application/ld+json">{ JSON.stringify(json) }</script>
+  return props.dangerouslyExposeHtml ? (
+    <script
+      type="application/ld+json"
+      dangerouslySetInnerHTML={{
+        __html: JSON.stringify(json).replace(/</g, "\\u003C"),
+      }}
+    />
+  ) : (
+    <script type="application/ld+json">
+      {JSON.stringify(json).replace(/</g, "\\u003C")}
+    </script>
   );
 }
 
