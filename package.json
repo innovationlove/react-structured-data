@@ -1,6 +1,6 @@
 {
   "name": "ilove-react-structured-data",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "Declarative JSON-LD Structured Data for ReactJS Apps",
   "author": "Ben Taylor <benlt105@gmail.com>",
   "private": false,
